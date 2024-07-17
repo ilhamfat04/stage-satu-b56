@@ -4,29 +4,66 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Document</title>
+    <title>Personal Website</title>
   </head>
   <body>
     <nav>
       <div class="left">
         <ul>
-          <li>
-            <a href="">Home</a>
+          <img
+            class="logo"
+            src="./assets/images/dumbways.png"
+            alt="logo-image"
+          />
+
+          <li class="active">
+            <a href="./index.html">Home</a>
           </li>
           <li>
-            <a href="">Blog</a>
+            <a href="./contact.html">Blog</a>
           </li>
         </ul>
       </div>
 
       <div class="right">
-        <a href="">Contact Me</a>
+        <a href="./contact.html">Contact Me</a>
       </div>
     </nav>
 
-    <div class="container">
-      <div class="left"></div>
-      <div class="right"></div>
-    </div>
+    <!-- formulir -->
+    <form>
+      <div>
+        <label for="nameInput">Name</label>
+        <input
+          id="nameInput"
+          type="text"
+          required
+          placeholder="input your name"
+        />
+      </div>
+
+      <div>
+        <label for="emailInput">Email</label>
+        <input id="emailInput" type="email" />
+      </div>
+
+      <div>
+        <label for="position">Position</label>
+        <select id="position">
+          <option hidden>Select Option!</option>
+          <option>Frontend Developer</option>
+          <option>Backend Developer</option>
+          <option>Fullstack Developer</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="address">Address</label> <textarea id="address"></textarea>
+      </div>
+
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
   </body>
 </html>

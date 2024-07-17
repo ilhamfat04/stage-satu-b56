@@ -1,78 +1,98 @@
 body {
   margin: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.box {
-  border: 1px black solid;
-  width: 350px;
-  margin: auto;
-  margin-top: 40px;
-  padding: 20px;
-  box-shadow: 0px 0px 30px grey;
-}
-
-.customColor {
-  color: yellow !important;
-}
-
-#description {
-  color: red;
-}
-
-p {
-  font-size: 20px;
-}
-
-p.country {
-  font-weight: 900;
-}
-
-/* ====== */
+/* navbar */
 nav {
-  background-color: rgb(216, 206, 203);
   display: flex;
   justify-content: space-between;
-}
-
-.left {
-  display: flex;
+  background-color: #dbdbdb;
+  padding: 0 80px;
   align-items: center;
 }
 
-.left ul {
+nav .left ul {
   display: flex;
   align-items: center;
+  padding: 0;
 }
 
-.left ul li {
-  list-style-type: none;
-  padding-right: 20px;
+nav .left ul img {
+  margin-right: 40px;
 }
 
-.left ul li a {
-  text-decoration: none;
+nav .left ul li a {
   color: black;
-  font-weight: 600;
+  text-decoration: none;
+  font-weight: 800;
 }
 
-.right {
-  display: flex;
-  align-items: center;
-  padding-right: 20px;
+nav .left ul .active a {
+  font-weight: bold;
+  color: orangered;
 }
 
-.right button {
-  padding: 10px 20px;
+nav .right a {
+  text-decoration: none;
+  background-color: orangered;
+  padding: 8px 20px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 800;
+}
+
+nav .left ul li {
+  list-style-type: none;
+  margin-right: 25px;
+}
+
+.logo {
+  width: 40px;
+}
+
+/* form styling */
+
+form {
+  width: 300px;
+  margin: 50px auto;
+}
+
+input,
+select,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(197, 182, 182);
+}
+
+textarea {
+  resize: vertical;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+form label {
+  font-weight: 500;
+}
+
+form button {
+  background-color: orangered;
+  padding: 8px 20px;
   border: none;
   border-radius: 10px;
-  background-color: rgb(243, 68, 15);
+  color: white;
+  font-weight: bold;
+  float: right;
+  cursor: pointer;
 }
 
-.right a {
-  text-decoration: none;
-  color: wheat;
-  font-weight: 700;
-  padding: 10px 20px;
-  background-color: rgb(255, 145, 0);
-  border-radius: 10px;
+form button:hover {
+  background-color: rgb(255, 166, 0);
+  transition: 0.5s;
 }
