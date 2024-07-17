@@ -1,0 +1,26 @@
+// VARIABLE & DATA TYPE
+
+// tipe data js :
+// number =  angka ,
+// string = karakter,
+// boolean = true/false,
+
+// key_word nama_variabel = value
+// var
+// let
+// const
+
+// var myName = "Ilham"; // mendeklarasikan
+// console.log("My name : ", myName);
+// var myName = "Fathullah"; // mengubah
+// console.log("My name 2: ", myName);
+
+// let myAge = 23;
+// console.log("My age : ", myAge);
+// myAge = 25;
+// console.log("My age 2: ", myAge);
+
+// const myHome = "sukabumi";
+// console.log("My home : ", myHome);
+// myHome = "jambi";
+// console.log("My home : ", myHome);
