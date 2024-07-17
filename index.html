@@ -1,27 +1,48 @@
 <html>
   <head>
-    <title>Personal</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <title>Personal Website</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body>
-    <div class="box">
+    <nav>
+      <div class="left">
+        <ul>
+          <img
+            class="logo"
+            src="./assets/images/dumbways.png"
+            alt="logo-image"
+          />
+
+          <li class="active">
+            <a href="./index.html">Home</a>
+          </li>
+          <li>
+            <a href="./contact.html">Blog</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="right">
+        <a href="./contact.html">Contact Me</a>
+      </div>
+    </nav>
+    <div
+      style="
+        border: 1px black solid;
+        width: 350px;
+        margin: auto;
+        margin-top: 40px;
+        padding: 20px;
+        box-shadow: 0px 0px 30px grey;
+      "
+    >
       <img
-        src="./assets/images/images.jpeg"
-        style="width: 100%; border-radius: 10px; height: 50%"
+        src="./assets/images/luffy.jpg"
+        style="width: 100%; border-radius: 10px"
       />
-      <h1 class="customColor" id="description" style="color: blue">Ilham</h1>
-      <p id="description">Seorang fullstack developer profesional</p>
-      <p>Dumbways</p>
-      <p class="country">Indonesia</p>
-      <i class="fa-brands fa-facebook"></i>
+      <h1>Ilham Fathullh</h1>
+      <p style="display: none">Seorang fullstack developer profesional</p>
 
       <table
         style="border: 1px black solid; border-collapse: collapse; width: 100%"
