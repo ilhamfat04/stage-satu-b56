@@ -24,3 +24,40 @@
 // console.log("My home : ", myHome);
 // myHome = "jambi";
 // console.log("My home : ", myHome);
+
+
+function withParams(myAge) {
+  let futureAge = myAge + 5;
+
+  return futureAge;
+}
+
+let age = withParams(23);
+console.log("Umur ditambh 5 " + age);
+
+====
+
+
+// kondisi = cuaca
+// cuaca cerah = ga bawa payung
+// cuaca hujan = bawa payung
+
+// 60>50 = true
+// 70<70 = false
+// 90>=89 = true
+
+let cuaca = "cerah"; // kenyataan
+
+if (cuaca == "cerah") {
+  console.log("ga bawa payung");
+
+  return
+} else if (cuaca == "hujan") {
+  console.log("bawa payung");
+} else {
+  console.log("kondisi tidak diketahui");
+}
+
+// if (cuaca == "hujan") {
+//   console.log("bawa payung");
+// }

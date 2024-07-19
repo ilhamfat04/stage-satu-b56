@@ -4,11 +4,15 @@ function getData() {
   let position = document.getElementById("position").value;
   let address = document.getElementById("address").value;
 
-  console.log(name);
-  console.log(email);
-  console.log(position);
-  console.log(address);
+  if (name == "") {
+    return alert("Tolong diisikan nama kamu");
+  } else if (email == "") {
+    return alert("Tolong diisikan nama kamu");
+  }
 
-  //   tipe data, variable, function
-  //    conditional, tipe data array dan object
+  let myEmail = "ilham@gmail.com";
+  let subject = "introduction";
+  let a = document.createElement("a");
+  a.href = `mailto:${myEmail}?subject=${subject}&body=halo bang`;
+  a.click();
 }
