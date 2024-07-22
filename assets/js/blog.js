@@ -11,6 +11,7 @@ function addBlog(event) {
     title,
     content: content,
     postAt: new Date(),
+    updateAt: new Date(),
   };
 
   dataBlog.push(blog); // dataBlog = [blog,blog]
