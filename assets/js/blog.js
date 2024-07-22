@@ -10,6 +10,7 @@ function addBlog(event) {
   let blog = {
     title,
     content: content,
+    postAt: new Date(),
   };
 
   dataBlog.push(blog); // dataBlog = [blog,blog]
@@ -38,12 +39,69 @@ function renderBlog() {
               >
             </h1>
             <div class="detail-blog-content">
-              12 Jul 2021 22:30 WIB | Ichsan Emrald Alamsyah
+              ${getFullDate(dataBlog[i].postAt)} | Ichsan Emrald Alamsyah
             </div>
             <p>
             ${dataBlog[i].content}
             </p>
+            <p style="float: right">${getDistanceTime(dataBlog[i].postAt)}</p>
           </div>
         </div>`;
+  }
+}
+
+function getFullDate(time) {
+  let nameOfMonth = [
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
+    "September",
+    "Oktober",
+    "November",
+    "Desember",
+  ];
+
+  let date = time.getDate();
+  let month = nameOfMonth[time.getMonth()];
+  let year = time.getFullYear();
+
+  let hour = time.getHours();
+  let minute = time.getMinutes();
+
+  return `${date} ${month} ${year} - ${hour}:${minute} WIB`;
+}
+
+function getDistanceTime(time) {
+  let postTime = time;
+  let currentTime = new Date();
+
+  let distanceTime = currentTime - postTime; //4000
+
+  let miliSecond = 1000;
+  let secondInHour = 3600;
+  let hourInDay = 24;
+
+  let distanceTimeInSecond = Math.floor(distanceTime / miliSecond);
+  let distanceTimeInMinute = Math.floor(distanceTime / (miliSecond * 60));
+  let distanceTimeInHour = Math.floor(
+    distanceTime / (miliSecond * secondInHour)
+  );
+  let distanceTimeInDay = Math.floor(
+    distanceTime / (miliSecond * secondInHour * hourInDay)
+  );
+
+  if (distanceTimeInDay > 0) {
+    return `${distanceTimeInDay} days ago`;
+  } else if (distanceTimeInHour > 0) {
+    return `${distanceTimeInHour} hours ago`;
+  } else if (distanceTimeInMinute > 0) {
+    return `${distanceTimeInMinute} minutes ago`;
+  } else {
+    return `${distanceTimeInSecond} seconds ago`;
   }
 }
