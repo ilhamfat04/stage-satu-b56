@@ -61,3 +61,41 @@ if (cuaca == "cerah") {
 // if (cuaca == "hujan") {
 //   console.log("bawa payung");
 // }
+
+===
+
+// 23
+// ""
+// boolean
+// = [0 , 1, 2, 3]
+
+let myObject = {
+  engine: "toyota",
+  merk: "innova",
+  unit: 23,
+};
+
+let myArray = [myObject, 23];
+
+console.log(myArray[0].engine);
+console.log(myObject["engine"]);
+
+let yourArray = [["ilham"], [23], ["jambi"]];
+console.log(yourArray[0][0]);
+
+===
+// perulangan
+let myArray = [23, 24, 25, 26, "ilham"];
+
+// 1 = kamu
+// 3 = kamu (i+2)
+// 5 = kamu (i+2)
+//  = kamu
+//  = kamu
+
+// for (batas_bawah; batas_atas; counter )
+// i+=2
+// i = i+2
+for (let i = 0; i < myArray.length; i = i + 1) {
+  console.log(myArray[i]);
+}
