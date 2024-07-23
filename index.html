@@ -1,10 +1,17 @@
 <html>
   <head>
     <title>Personal Website</title>
+    <link rel="stylesheet" href="./assets/css/navbar.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <body>
+    <!-- navbar -->
     <nav>
       <div class="left">
         <ul>
@@ -18,46 +25,109 @@
             <a href="./index.html">Home</a>
           </li>
           <li>
-            <a href="./contact.html">Blog</a>
+            <a href="./blog.html">Blog</a>
           </li>
         </ul>
       </div>
 
       <div class="right">
         <a href="./contact.html">Contact Me</a>
+        <button class="btn-hamburger" onclick="toggleNavbar()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
     </nav>
-    <div
-      style="
-        border: 1px black solid;
-        width: 350px;
-        margin: auto;
-        margin-top: 40px;
-        padding: 20px;
-        box-shadow: 0px 0px 30px grey;
-      "
-    >
-      <img
-        src="./assets/images/luffy.jpg"
-        style="width: 100%; border-radius: 10px"
-      />
-      <h1>Ilham Fathullh</h1>
-      <p style="display: none">Seorang fullstack developer profesional</p>
 
-      <table
-        style="border: 1px black solid; border-collapse: collapse; width: 100%"
+    <ul class="hamburger-container hamburger-hide" id="hamburger-container">
+      <li
+        style="
+          border: 2px solid white;
+          text-align: center;
+          padding: 10px;
+          color: white;
+          font-weight: bold;
+          font-size: x-large;
+        "
       >
-        <tr>
-          <th style="border: 1px black solid">Experience</th>
-          <th style="border: 1px black solid">Years</th>
-        </tr>
-        <tr>
-          <td style="border: 1px black solid; text-align: center">
-            Full Stack Mobile Dev
-          </td>
-          <td style="border: 1px black solid; text-align: center">2024</td>
-        </tr>
-      </table>
+        <a href="./index.html">Home</a>
+      </li>
+      <li
+        style="
+          border: 2px solid white;
+          text-align: center;
+          padding: 10px;
+          color: white;
+          font-weight: bold;
+          font-size: x-large;
+        "
+      >
+        <a href="./blog.html">Blog</a>
+      </li>
+      <li
+        style="
+          border: 2px solid white;
+          text-align: center;
+          padding: 10px;
+          color: white;
+          font-weight: bold;
+          font-size: x-large;
+        "
+      >
+        <a href="./contact.html">Contact Me</a>
+      </li>
+    </ul>
+
+    <!-- end of navbar -->
+
+    <div class="container">
+      <div
+        style="
+          border: 1px black solid;
+          width: 350px;
+          margin: auto;
+          margin-top: 40px;
+          padding: 20px;
+          box-shadow: 0px 0px 30px grey;
+        "
+      >
+        <img
+          src="./assets/images/luffy.jpg"
+          style="width: 100%; border-radius: 10px"
+        />
+        <h1>Ilham Fathullh</h1>
+        <p style="display: none">Seorang fullstack developer profesional</p>
+
+        <table
+          style="
+            border: 1px black solid;
+            border-collapse: collapse;
+            width: 100%;
+          "
+        >
+          <tr>
+            <th style="border: 1px black solid">Experience</th>
+            <th style="border: 1px black solid">Years</th>
+          </tr>
+          <tr>
+            <td style="border: 1px black solid; text-align: center">
+              Full Stack Mobile Dev
+            </td>
+            <td style="border: 1px black solid; text-align: center">2024</td>
+          </tr>
+        </table>
+      </div>
+
+      <div style="padding: 50px">
+        <h1>What i do</h1>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
+          deleniti. Doloribus iusto placeat, tempore, architecto laudantium
+          mollitia exercitationem illo atque totam numquam perferendis animi
+          ducimus repudiandae. Repellat blanditiis qui facilis.
+        </p>
+      </div>
     </div>
+
+    <script src="./assets/js/navbar.js"></script>
   </body>
 </html>

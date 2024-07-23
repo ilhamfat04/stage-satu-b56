@@ -4,54 +4,6 @@ body {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-/* navbar */
-nav {
-  display: flex;
-  justify-content: space-between;
-  background-color: #dbdbdb;
-  padding: 0 80px;
-  align-items: center;
-}
-
-nav .left ul {
-  display: flex;
-  align-items: center;
-  padding: 0;
-}
-
-nav .left ul img {
-  margin-right: 40px;
-}
-
-nav .left ul li a {
-  color: black;
-  text-decoration: none;
-  font-weight: 800;
-}
-
-nav .left ul .active a {
-  font-weight: bold;
-  color: orangered;
-}
-
-nav .right a {
-  text-decoration: none;
-  background-color: orangered;
-  padding: 8px 20px;
-  border-radius: 5px;
-  color: white;
-  font-weight: 800;
-}
-
-nav .left ul li {
-  list-style-type: none;
-  margin-right: 25px;
-}
-
-.logo {
-  width: 40px;
-}
-
 /* form styling */
 
 form {
@@ -95,4 +47,23 @@ form button {
 form button:hover {
   background-color: rgb(255, 166, 0);
   transition: 0.5s;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 200px;
+}
+
+@media only screen and (max-width: 650px) {
+  .container {
+    padding: 100px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    flex-direction: column;
+    padding: 0;
+  }
 }

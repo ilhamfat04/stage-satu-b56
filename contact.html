@@ -1,12 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
     <title>Personal Website</title>
   </head>
   <body>
+    <!-- navbar -->
     <nav>
       <div class="left">
         <ul>
@@ -20,15 +26,59 @@
             <a href="./index.html">Home</a>
           </li>
           <li>
-            <a href="./contact.html">Blog</a>
+            <a href="./blog.html">Blog</a>
           </li>
         </ul>
       </div>
 
       <div class="right">
         <a href="./contact.html">Contact Me</a>
+        <button class="btn-hamburger" onclick="toggleNavbar()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
     </nav>
+
+    <ul class="hamburger-container hamburger-hide" id="hamburger-container">
+      <li
+        style="
+          border: 2px solid white;
+          text-align: center;
+          padding: 10px;
+          color: white;
+          font-weight: bold;
+          font-size: x-large;
+        "
+      >
+        <a href="./index.html">Home</a>
+      </li>
+      <li
+        style="
+          border: 2px solid white;
+          text-align: center;
+          padding: 10px;
+          color: white;
+          font-weight: bold;
+          font-size: x-large;
+        "
+      >
+        <a href="./blog.html">Blog</a>
+      </li>
+      <li
+        style="
+          border: 2px solid white;
+          text-align: center;
+          padding: 10px;
+          color: white;
+          font-weight: bold;
+          font-size: x-large;
+        "
+      >
+        <a href="./contact.html">Contact Me</a>
+      </li>
+    </ul>
+
+    <!-- end of navbar -->
 
     <!-- formulir -->
     <form>
@@ -66,5 +116,6 @@
       </div>
     </form>
   </body>
+  <script src="./assets/js/navbar.js"></script>
   <script src="./assets/js/script.js"></script>
 </html>
