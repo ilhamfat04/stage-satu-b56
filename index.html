@@ -1,133 +1,127 @@
+<!doctype html>
 <html>
   <head>
-    <title>Personal Website</title>
-    <link rel="stylesheet" href="./assets/css/navbar.css">
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>B54 - Project Portfolio</title>
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="assets/css/nav.css" />
+    <link rel="stylesheet" href="assets/css/home.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
   </head>
 
   <body>
-    <!-- navbar -->
-    <nav>
-      <div class="left">
-        <ul>
-          <img
-            class="logo"
-            src="./assets/images/dumbways.png"
-            alt="logo-image"
-          />
-
-          <li class="active">
-            <a href="./index.html">Home</a>
+    <nav class="navbar">
+      <ul class="navbar-ul">
+        <div class="navbar-left">
+          <li>
+            <img src="assets/img/dumbways.png" class="navbar-logo" />
           </li>
           <li>
-            <a href="./blog.html">Blog</a>
+            <a href="index.html" class="navbar-link active"> Home </a>
           </li>
-        </ul>
-      </div>
-
-      <div class="right">
-        <a href="./contact.html">Contact Me</a>
-        <button class="btn-hamburger" onclick="toggleNavbar()">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
+          <li>
+            <a href="blog.html" class="navbar-link"> Blog </a>
+          </li>
+          <li>
+            <a href="testimonial.html" class="navbar-link"> Testimonial </a>
+          </li>
+        </div>
+        <div class="navbar-right">
+          <li>
+            <a href="contact.html" class="navbar-contact-btn"> Contact </a>
+          </li>
+          <button id="hamburger-button" onclick="toggleHamburger()">
+            <i class="fa-solid fa-bars fa-2x"></i>
+          </button>
+        </div>
+      </ul>
     </nav>
+    <div class="hamburger-container hide">
+      <a href="index.html" class="hamburger-nav-link hamburger-active">
+        Home
+      </a>
+      <a href="blog.html" class="hamburger-nav-link"> Blog </a>
+      <a href="testimonial.html" class="hamburger-nav-link"> Testimonial </a>
+      <a href="contact.html" class="hamburger-nav-link"> Contact </a>
+    </div>
 
-    <ul class="hamburger-container hamburger-hide" id="hamburger-container">
-      <li
-        style="
-          border: 2px solid white;
-          text-align: center;
-          padding: 10px;
-          color: white;
-          font-weight: bold;
-          font-size: x-large;
-        "
-      >
-        <a href="./index.html">Home</a>
-      </li>
-      <li
-        style="
-          border: 2px solid white;
-          text-align: center;
-          padding: 10px;
-          color: white;
-          font-weight: bold;
-          font-size: x-large;
-        "
-      >
-        <a href="./blog.html">Blog</a>
-      </li>
-      <li
-        style="
-          border: 2px solid white;
-          text-align: center;
-          padding: 10px;
-          color: white;
-          font-weight: bold;
-          font-size: x-large;
-        "
-      >
-        <a href="./contact.html">Contact Me</a>
-      </li>
-    </ul>
-
-    <!-- end of navbar -->
-
-    <div class="container">
-      <div
-        style="
-          border: 1px black solid;
-          width: 350px;
-          margin: auto;
-          margin-top: 40px;
-          padding: 20px;
-          box-shadow: 0px 0px 30px grey;
-        "
-      >
+    <section class="container">
+      <div class="left">
         <img
-          src="./assets/images/luffy.jpg"
-          style="width: 100%; border-radius: 10px"
-        />
-        <h1>Ilham Fathullh</h1>
-        <p style="display: none">Seorang fullstack developer profesional</p>
-
-        <table
+          src="./assets/img/naruto.jpg"
+          alt="Ini tuh gambar naruto bro"
           style="
-            border: 1px black solid;
-            border-collapse: collapse;
             width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px;
           "
-        >
+        />
+        <h1>Cintara Surya Elidanto</h1>
+        <p>
+          Saya adalah seorang Fullstack Developer. Saya memiliki pengalaman di
+          bidang pemrograman selama kurang lebih 5 tahun.
+        </p>
+        <table border="1" style="width: 100%">
           <tr>
-            <th style="border: 1px black solid">Experience</th>
-            <th style="border: 1px black solid">Years</th>
+            <th>Experience</th>
+            <th>Year</th>
           </tr>
           <tr>
-            <td style="border: 1px black solid; text-align: center">
-              Full Stack Mobile Dev
-            </td>
-            <td style="border: 1px black solid; text-align: center">2024</td>
+            <td>Internship in Dumbways</td>
+            <td>2020</td>
+          </tr>
+          <tr>
+            <td>CEO in Dumbways</td>
+            <td>2021</td>
           </tr>
         </table>
       </div>
 
-      <div style="padding: 50px">
-        <h1>What i do</h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-          deleniti. Doloribus iusto placeat, tempore, architecto laudantium
-          mollitia exercitationem illo atque totam numquam perferendis animi
-          ducimus repudiandae. Repellat blanditiis qui facilis.
-        </p>
-      </div>
-    </div>
+      <div class="right">
+        <h2>What i do</h2>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+        deserunt dolores, harum rerum laboriosam earum totam dolorem debitis
+        impedit ipsam inventore sint quisquam modi eaque quis, unde nemo magni
+        ipsum?
 
-    <script src="./assets/js/navbar.js"></script>
+        <div class="skill">
+          <div>
+            <img src="images/logo.png" alt="" srcset="" />
+            <h2>Javascript</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, ea!
+            </p>
+          </div>
+          <div>
+            <img src="images/logo.png" alt="" srcset="" />
+            <h2>Github</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, ea!
+            </p>
+          </div>
+
+          <div>
+            <img src="images/logo.png" alt="" srcset="" />
+            <h2>Deployment</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, ea!
+            </p>
+          </div>
+        </div>
+
+        <div class="social-media">
+          <h2>Found Me on</h2>
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+      </div>
+    </section>
+
+    <script src="./assets/js/nav.js"></script>
   </body>
 </html>
