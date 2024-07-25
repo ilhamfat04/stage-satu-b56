@@ -1,0 +1,4 @@
+syarat hof :
+1. parameter functionnya itu terdapat minimal 1 berupa fungsi lagi
+2. returnnya berupa fungsi lagi
+3. paramternya function dan return berupa fungsi
