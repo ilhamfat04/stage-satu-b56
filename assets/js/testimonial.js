@@ -1,34 +1,70 @@
+function fetchUrl(url) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
 
+    xhr.open("GET", url, true);
 
-class Testimonial {
-    constructor(image, content, author) {
-        this.image = image
-        this.content = content
-        this.author = author
-    }
+    xhr.onerror = () => {
+      reject("Network error!");
+    };
 
-    html() {
-        return `<div class="testimonial">
-          <img
-            src="${this.image}"
-            class="profile-testimonial"
-          />
-          <p class="quote">${this.content}</p>
-          <p class="author">- ${this.author}</p>
-        </div>`
-    }
+    xhr.onload = () => {
+      resolve(JSON.parse(xhr.responseText));
+    };
+
+    xhr.send();
+  });
 }
 
-const testimonial1 = new Testimonial("https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600", "Mantap bang!", "Surya")
+async function allTestimonial() {
+  try {
+    const testimonials = await fetchUrl(
+      "https://api.npoint.io/e320fa70a61a3c02310b"
+    );
 
-const testimonial2 = new Testimonial("https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=600", "Mantap keren sekali!", "Alfi Dharmawan")
+    const testimonialHTML = testimonials.map((testimonial) => {
+      return `<div class="testimonial">
+                  <img
+                    src="${testimonial.image}"
+                    class="profile-testimonial"
+                  />
+                  <p class="quote">${testimonial.content}</p>
+                  <p class="author">- ${testimonial.author}</p>
+                </div>`;
+    });
 
-const testimonials = [testimonial1, testimonial2] // length => 2
-
-let testimonialHTML = ``
-
-for(let index = 0; index < testimonials.length; index++) {
-    testimonialHTML += testimonials[index].html()
+    document.getElementById("testimonials").innerHTML =
+      testimonialHTML.join(" ");
+  } catch (error) {
+    alert(error);
+  }
 }
 
-document.getElementById("testimonials").innerHTML = testimonialHTML
+async function filterTestimonial(rating) {
+  try {
+    const testimonials = await fetchUrl(
+      "https://api.npoint.io/e320fa70a61a3c02310b"
+    );
+  
+    const filteredTestimonialByRating = testimonials.filter((testimonial) => {
+      return testimonial.rating == rating;
+    });
+  
+    const testimonialHTML = filteredTestimonialByRating.map((testimonial) => {
+      return `<div class="testimonial">
+                      <img
+                        src="${testimonial.image}"
+                        class="profile-testimonial"
+                      />
+                      <p class="quote">${testimonial.content}</p>
+                      <p class="author">- ${testimonial.author}</p>
+                    </div>`;
+    });
+  
+    document.getElementById("testimonials").innerHTML = testimonialHTML.join(" ");
+  } catch(error) {
+    alert(error)
+  }
+}
+
+allTestimonial();
