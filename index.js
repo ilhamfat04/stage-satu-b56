@@ -11,12 +11,7 @@ app.use("/assets", express.static("assets"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const blogs = [
-   {
-      title: "blog 1",
-      content: "ini content blog 1",
-   },
-];
+const blogs = [];
 
 // routing
 app.get("/", (req, res) => {
@@ -28,7 +23,10 @@ app.get("/blog", renderBlog);
 app.post("/blog", addBlog);
 app.get("/contact", renderContact);
 app.get("/testimonial", renderTestimonial);
-app.get("/blog-detail", renderBlogDetail);
+app.get("/blog-detail/:blog_id", renderBlogDetail);
+app.get("/edit-blog/:blog_id", renderEditBlog);
+app.post("/edit-blog/:blog_id", editBlog);
+app.get("/delete-blog/:blog_id", deleteBlog);
 
 function renderContact(req, res) {
    res.render("contact");
@@ -47,13 +45,64 @@ function renderBlog(req, res) {
 function addBlog(req, res) {
    console.log(req.body);
 
-   // blogs.push(req.body);
+   const newBlog = {
+      id: blogs.length + 1,
+      title: req.body.title,
+      content: req.body.content,
+      createdAt: new Date(),
+      author: "Cundus",
+   };
+
+   blogs.push(newBlog);
 
    res.redirect("/blog");
 }
 
 function renderBlogDetail(req, res) {
-   res.render("blog-detail");
+   const id = req.params.blog_id;
+
+   const blog = blogs.find((blog) => blog.id == id);
+
+   res.render("blog-detail", {
+      data: blog,
+   });
+}
+
+function renderEditBlog(req, res) {
+   const id = req.params.blog_id;
+
+   const blog = blogs.find((blog) => blog.id == id);
+   console.log(blog);
+   res.render("edit-blog", {
+      data: blog,
+   });
+}
+
+function editBlog(req, res) {
+   const id = req.params.blog_id;
+   const newBlog = {
+      id: id,
+      title: req.body.title,
+      content: req.body.content,
+      createdAt: new Date(),
+      author: "Cundus",
+   };
+
+   const index = blogs.findIndex((blog) => blog.id == id);
+
+   blogs[index] = newBlog;
+
+   res.redirect("/blog");
+}
+
+function deleteBlog(req, res) {
+   const id = req.params.blog_id;
+
+   const index = blogs.findIndex((blog) => blog.id == id);
+
+   blogs.splice(index, 1);
+
+   res.redirect("/blog");
 }
 
 // akhir routes

@@ -1,9 +1,9 @@
 <html>
    <head>
       <title>Creating Blog Page</title>
-      <link rel="stylesheet" href="assets/css/index.css" />
-      <link rel="stylesheet" href="assets/css/nav.css" />
-      <link rel="stylesheet" href="assets/css/blog.css" />
+      <link rel="stylesheet" href="/assets/css/index.css" />
+      <link rel="stylesheet" href="/assets/css/nav.css" />
+      <link rel="stylesheet" href="/assets/css/blog.css" />
       <link
          rel="stylesheet"
          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -102,17 +102,29 @@
                   </div>
                   <div class="blog-content">
                      <div class="btn-group">
-                        <button class="btn-edit">Edit Post</button>
-                        <button class="btn-post">Delete Post</button>
+                        <a
+                           class="btn-edit btn-secondary"
+                           href="/edit-blog/{{this.id}}"
+                           style="text-decoration: none; color: black;"
+                           role="button"
+                        >Edit Post</a>
+                        <a
+                           href="/delete-blog/{{this.id}}"
+                           class="btn-post"
+                           role="button"
+                           style="text-decoration: none; color: white;"
+                        >Delete Post</a>
                      </div>
                      <h1>
                         <a
-                           href="blog-detail.html"
+                           href="/blog-detail/{{this.id}}"
                            target="_blank"
                         >{{this.title}}</a>
                      </h1>
                      <div class="detail-blog-content">
-                        | Ichsan Emrald Alamsyah
+                        {{this.createdAt}}
+                        |
+                        {{this.author}}
                      </div>
                      <p style="width: 100%;">
                         {{this.content}}
