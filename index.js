@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+const db = require("./src/lib/db");
+const { QueryTypes } = require("sequelize");
+
 app.set("view engine", "hbs");
 app.set("views", "views");
 
@@ -11,7 +14,7 @@ app.use("/assets", express.static("assets"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const blogs = [];
+const blogs = [{}];
 
 // routing
 app.get("/", (req, res) => {
@@ -36,77 +39,118 @@ function renderTestimonial(req, res) {
    res.render("testimonial");
 }
 
-function renderBlog(req, res) {
+async function renderBlog(req, res) {
+   const query = `SELECT * FROM blog;`;
+   const result = await db.query(query, { type: QueryTypes.SELECT });
+
    res.render("blog", {
-      data: [...blogs],
+      data: result,
    });
 }
 
-function addBlog(req, res) {
-   console.log(req.body);
+async function addBlog(req, res) {
+   try {
+      console.log(req.body);
 
-   const newBlog = {
-      id: blogs.length + 1,
-      title: req.body.title,
-      content: req.body.content,
-      createdAt: new Date(),
-      author: "Cundus",
-   };
+      // const newBlog = {
+      //    id: blogs.length + 1,
+      //    title: req.body.title,
+      //    content: req.body.content,
+      //    createdAt: new Date(),
+      //    author: "Cundus",
+      // };
 
-   blogs.push(newBlog);
+      // blogs.push(newBlog);
 
-   res.redirect("/blog");
+      const query = `
+      INSERT INTO blog
+      (title, content, created_at, author)
+      VALUES
+      ('${req.body.title}', '${req.body.content}', NOW(), 'Cundus')
+      `;
+
+      await db.query(query);
+
+      res.redirect("/blog");
+   } catch (error) {
+      console.log(error);
+   }
 }
 
-function renderBlogDetail(req, res) {
+async function renderBlogDetail(req, res) {
    const id = req.params.blog_id;
 
-   const blog = blogs.find((blog) => blog.id == id);
+   const blog = await db.query(`SELECT * FROM blog WHERE id = ${id}`, {
+      type: QueryTypes.SELECT,
+   });
 
    res.render("blog-detail", {
-      data: blog,
+      data: blog[0],
    });
 }
 
-function renderEditBlog(req, res) {
+async function renderEditBlog(req, res) {
    const id = req.params.blog_id;
 
-   const blog = blogs.find((blog) => blog.id == id);
-   console.log(blog);
+   const blog = await db.query(`SELECT * FROM blog WHERE id = ${id}`, {
+      type: QueryTypes.SELECT,
+   });
+
    res.render("edit-blog", {
-      data: blog,
+      data: blog[0],
    });
 }
 
-function editBlog(req, res) {
-   const id = req.params.blog_id;
-   const newBlog = {
-      id: id,
-      title: req.body.title,
-      content: req.body.content,
-      createdAt: new Date(),
-      author: "Cundus",
-   };
+async function editBlog(req, res) {
+   try {
+      const id = req.params.blog_id;
+      const newBlog = {
+         title: req.body.title,
+         content: req.body.content,
+         createdAt: new Date(),
+         author: "Cundus",
+      };
 
-   const index = blogs.findIndex((blog) => blog.id == id);
+      // const index = blogs.findIndex((blog) => blog.id == id);
 
-   blogs[index] = newBlog;
+      // blogs[index] = newBlog;
 
-   res.redirect("/blog");
+      const query = `
+   UPDATE blog
+   SET 
+   title = '${newBlog.title}',
+   content = '${newBlog.content}' 
+   WHERE id = ${id}`;
+
+      await db.query(query);
+
+      res.redirect("/blog");
+   } catch (error) {
+      console.log(error);
+   }
 }
 
-function deleteBlog(req, res) {
+async function deleteBlog(req, res) {
    const id = req.params.blog_id;
 
-   const index = blogs.findIndex((blog) => blog.id == id);
+   // const index = blogs.findIndex((blog) => blog.id == id);
 
-   blogs.splice(index, 1);
+   // blogs.splice(index, 1);
+
+   const query = `DELETE FROM blog WHERE id = ${id}`;
+   await db.query(query);
 
    res.redirect("/blog");
 }
 
 // akhir routes
 
-app.listen(port, () => {
-   console.log(`Server berjalan di port ${port}`);
+app.listen(port, async () => {
+   try {
+      await db.authenticate();
+
+      console.log(`Server berjalan di port ${port}`);
+   } catch (error) {
+      console.log(error);
+   }
 });
