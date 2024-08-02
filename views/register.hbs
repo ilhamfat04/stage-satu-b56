@@ -1,0 +1,99 @@
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Login</title>
+      <link rel="stylesheet" href="/assets/css/index.css" />
+      <link rel="stylesheet" href="/assets/css/nav.css" />
+      <link rel="stylesheet" href="/assets/css/home.css" />
+      <link rel="stylesheet" href="/assets/css/blog.css" />
+   </head>
+   <body>
+      <nav class="navbar">
+         <ul class="navbar-ul">
+            <div class="navbar-left">
+               <li>
+                  <img src="/assets/img/dumbways.png" class="navbar-logo" />
+               </li>
+               <li>
+                  <a href="/" class="navbar-link active"> Home </a>
+               </li>
+               <li>
+                  <a href="blog" class="navbar-link"> Blog </a>
+               </li>
+               <li>
+                  <a href="testimonial" class="navbar-link">
+                     Testimonial
+                  </a>
+               </li>
+            </div>
+            <div class="navbar-right">
+               <li>
+                  <a href="contact" class="navbar-contact-btn">
+                     Contact
+                  </a>
+               </li>
+               <button id="hamburger-button" onclick="toggleHamburger()">
+                  <i class="fa-solid fa-bars fa-2x"></i>
+               </button>
+            </div>
+         </ul>
+      </nav>
+
+      <div class="blog">
+         <div class="blog-form">
+            <div class="form-container">
+               <form action="/register" method="POST">
+                  <h1>Register</h1>
+                  {{#if messages.danger}}
+                     <div class="alert alert-danger" role="alert">
+                        <div class="container">
+                           {{messages.danger}}
+                        </div>
+                     </div>
+                  {{/if}}
+
+                  {{#if messages.succes}}
+                     <div class="alert alert-success" role="alert">
+                        <div class="container">
+                           {{messages.succes}}
+                        </div>
+                     </div>
+                  {{/if}}
+                  <div>
+                     <label for="input-blog-title">Fullname</label>
+                     <input
+                        id="input-blog-title"
+                        name="fullname"
+                        type="text"
+                        required
+                     />
+                  </div>
+                  <div>
+                     <label for="input-blog-title">Email</label>
+                     <input
+                        id="input-blog-title"
+                        name="email"
+                        type="email"
+                        required
+                     />
+                  </div>
+                  <div>
+                     <label for="input-blog-title">Password</label>
+                     <input
+                        id="input-blog-title"
+                        name="password"
+                        type="password"
+                        required
+                     />
+                  </div>
+                  <div class="" style="display: flex;">
+                     <button>Register</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+
+      </div>
+   </body>
+</html>
